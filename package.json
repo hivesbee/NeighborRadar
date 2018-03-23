@@ -1,0 +1,14 @@
+{
+  "name": "NeighborRadar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hivesbee/NeighborRadar.git",
+  "author": "hivesbee",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "devDependencies": {
+    "nuxt": "^1.4.0"
+  }
+}
