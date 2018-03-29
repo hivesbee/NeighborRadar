@@ -6,7 +6,10 @@
   "author": "hivesbee",
   "license": "MIT",
   "scripts": {
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^0.4.1",
