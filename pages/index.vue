@@ -26,7 +26,7 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>NeighborRadar</v-toolbar-title>
+      <v-toolbar-title>NeighborRadar <span v-if="subtitle"> - {{ subtitle }}</span></v-toolbar-title>
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
@@ -39,6 +39,19 @@
                 :center="center"
                 :zoom="zoom"
                 @center_changed="updateCenter">
+                <gmap-marker
+                  :position="location"
+                  :clickable="false"
+                  :draggable="false"
+                  @click="center=location">
+                </gmap-marker>
+                <gmap-circle
+                  v-for="c in circles"
+                  :key="JSON.stringify(c.location)"
+                  :center="c.location"
+                  :radius="c.radius"
+                  :options="c.options">
+                </gmap-circle>
               </gmap-map>
             </v-card>
           </v-flex>
@@ -55,17 +68,14 @@
                       ></v-text-field>
                     </v-flex>
                     <v-flex xs12 sm2 text-xs-center>
-                      <v-btn primary light @click.native="search(i)">
+                      <v-btn primary light @click.native="search()">
                         <v-icon light left>search</v-icon>検索
                       </v-btn>
-                    </v-flex>
-                    <v-flex xs12>
-                      <v-divider></v-divider>
                     </v-flex>
                     <v-flex xs12 sm5 text-xs-center>
                       <v-select
                         :items="range"
-                        v-model="sonar.range"
+                        v-model="selectedRange"
                         label="表示範囲 (m)"
                         class="input-group"
                         item-value="number"
@@ -75,7 +85,7 @@
                     <v-flex xs12 sm6 offset-sm1 text-xs-center>
                       <v-select
                         v-bind:items="interval"
-                        v-model="sonar.interval"
+                        v-model="selectedInterval"
                         label="間隔 (m)"
                         class="input-group"
                         item-value="number"
@@ -104,11 +114,9 @@
     data () {
       return {
         drawer: null,
-        mapSize: {
-          display: 'block',
-          width: '100%',
-          height: '800px'
-        },
+        // ページサブタイトル
+        subtitle: '住所から等高線を表示',
+        // google map の中心座標
         center: {
           lat: 35.6811673,
           lng: 139.76705160000006
@@ -117,22 +125,86 @@
           lat: 35.6811673,
           lng: 139.76705160000006
         },
+        // 表示用の円
+        circles: [],
+        // 表示拡大率
         zoom: 15,
-
-        sonar: {
-          range: '',
-          interval: ''
-        },
+        // 入力用の住所
+        address: '品川駅',
+        // 表示領域
         range: [
           500, 1000, 2000, 3000
         ],
+        // 選択された表示領域
+        selectedRange: 500,
+        // 表示間隔
         interval: [
           100, 200, 300, 500, 1000
-       ],
+        ],
+        // 選択された表示間隔
+        selectedInterval: 100
       }
     },
     methods: {
       updateCenter () {
+      },
+      search () {
+        const geocoder = new window.google.maps.Geocoder()
+        console.log(geocoder)
+        geocoder.geocode({
+          'address': this.address,
+          'region': 'jp'
+        }, (results, status) => {
+          if (status === 'OK') {
+            console.log(results)
+            this.location = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng()
+            }
+
+            // set center.
+            this.center = {
+              lat: this.location.lat,
+              lng: this.location.lng
+            }
+
+            this.drawCircle()
+          }
+        })
+      },
+      drawCircle () {
+        this.circles = []
+        for (let i = this.selectedInterval; i < this.selectedRange; i += this.selectedInterval) {
+          this.circles.push({
+            location: this.location,
+            radius: i,
+            options: {
+              fillOpacity: 0.0,
+              strokeWeight: 3,
+              strokeColor: '#42a5f5'
+            }
+          })
+        }
+
+        this.circles.push({
+          location: this.location,
+          radius: this.selectedRange,
+          options: {
+            fillOpacity: 0.0,
+            strokeWeight: 4,
+            strokeColor: '#1E88E6'
+          }
+        })
+      }
+    },
+    watch: {
+      selectedRange (val) {
+        this.selectedRange = val
+        this.drawCircle()
+      },
+      selectedInterval (val) {
+        this.selectedInterval = val
+        this.drawCircle()
       }
     }
   }
