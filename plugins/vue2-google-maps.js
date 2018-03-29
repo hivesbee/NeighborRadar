@@ -4,7 +4,7 @@ import config from '../google-map.config'
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: config.key,
+    key: process.env.GOOGLE_MAP_KEY || config.key,
     libraries: ['places', 'geocoder'],
     options: {
       streetViewControl: false,
