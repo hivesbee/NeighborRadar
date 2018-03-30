@@ -11,7 +11,13 @@ module.exports = {
     ]
   },
   // モジュール
-  modules: [ '@nuxtjs/vuetify' ],
+  modules: [
+    '@nuxtjs/vuetify',
+    [ '@nuxtjs/google-adsense' ]
+  ],
   // プラグイン
-  plugins: [ '~/plugins/vue2-google-maps' ]
+  plugins: [ '~/plugins/vue2-google-maps' ],
+  'google-adsense': {
+    id: 'ca-pub-4520726372899677'
+  }
 }
