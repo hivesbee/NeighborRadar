@@ -6,9 +6,17 @@
   "author": "hivesbee",
   "license": "MIT",
   "scripts": {
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
-    "nuxt": "^1.4.0"
+    "@nuxtjs/google-adsense": "^1.1.3",
+    "@nuxtjs/vuetify": "^0.4.1",
+    "node-sass": "^4.8.3",
+    "nuxt": "^1.4.0",
+    "sass-loader": "^6.0.7",
+    "vue2-google-maps": "^0.8.11"
   }
 }
