@@ -19,7 +19,7 @@
             <v-icon>contact_mail</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>住所から等高線を表示</v-list-tile-title>
+            <v-list-tile-title>住所から同心円を表示</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -115,7 +115,7 @@
       return {
         drawer: null,
         // ページサブタイトル
-        subtitle: '住所から等高線を表示',
+        subtitle: '住所から同心円を表示',
         // google map の中心座標
         center: {
           lat: 35.6811673,
