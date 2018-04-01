@@ -56,7 +56,7 @@
             </v-card>
           </v-flex>
 
-          <v-flex xs12 text-xs-center>
+          <v-flex xs7 text-xs-center>
             <v-card>
               <v-card-actions primary-title>
                 <v-container fluid>
@@ -94,6 +94,17 @@
                   </v-layout>
                 </v-container>
               </v-card-actions>
+            </v-card>
+          </v-flex>
+          <v-flex xs4 offset-xs1 text-xs-center>
+            <v-card fluid>
+              <v-container justify-center row wrap>
+                <v-layout>
+                  <!-- admax -->
+                  <script src="//adm.shinobi.jp/s/0eda0ccb6b31e43ecd97d6ea909b1da7"></script>
+                  <!-- admax -->
+                </v-layout>
+              </v-container>
             </v-card>
           </v-flex>
         </v-layout>
