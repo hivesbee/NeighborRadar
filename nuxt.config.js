@@ -7,7 +7,7 @@ module.exports = {
     ],
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' },
-      { rel: 'icon', type: 'image/x-icon', href:'/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   // モジュール
@@ -19,5 +19,9 @@ module.exports = {
   plugins: [ '~/plugins/vue2-google-maps' ],
   'google-adsense': {
     id: 'ca-pub-4520726372899677'
+  },
+  router: {
+    linkActiveClass: 'active',
+    base: '/'
   }
 }
