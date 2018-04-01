@@ -99,10 +99,7 @@
           <v-flex xs4 offset-xs1 text-xs-center>
             <v-card fluid>
               <v-container justify-center row wrap>
-                <v-layout>
-                  <!-- admax -->
-                  <script src="//adm.shinobi.jp/s/0eda0ccb6b31e43ecd97d6ea909b1da7"></script>
-                  <!-- admax -->
+                <v-layout v-html="admax">
                 </v-layout>
               </v-container>
             </v-card>
@@ -153,7 +150,8 @@
           100, 200, 300, 500, 1000
         ],
         // 選択された表示間隔
-        selectedInterval: 100
+        selectedInterval: 100,
+        admax: `<!-- admax -->\n<script src=\"//adm.shinobi.jp/s/0eda0ccb6b31e43ecd97d6ea909b1da7\"><\/script>\n<!-- admax -->`
       }
     },
     methods: {
