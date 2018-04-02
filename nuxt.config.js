@@ -12,16 +12,8 @@ module.exports = {
   },
   // モジュール
   modules: [
-    '@nuxtjs/vuetify',
-    [ '@nuxtjs/google-adsense' ]
+    '@nuxtjs/vuetify'
   ],
   // プラグイン
   plugins: [ '~/plugins/vue2-google-maps' ],
-  'google-adsense': {
-    id: 'ca-pub-4520726372899677'
-  },
-  router: {
-    linkActiveClass: 'active',
-    base: '/'
-  }
 }
