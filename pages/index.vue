@@ -105,6 +105,9 @@
             </v-card>
           </v-flex>
         </v-layout>
+        <!-- admax -->
+        <script src="//adm.shinobi.jp/s/271d97f7450ac288f8168ef1edc6297f"></script>
+        <!-- admax -->
       </v-container>
     </v-content>
     <v-footer color="indigo" app>
@@ -155,7 +158,7 @@
       }
     },
     mounted () {
-      this.admax = `<!-- admax -->\n<script src=\"\/\/adm.shinobi.jp\/s\/271d97f7450ac288f8168ef1edc6297f\"><\/script>\n<!-- admax -->`
+      // this.admax = `<!-- admax -->\n<script src=\"\/\/adm.shinobi.jp\/s\/271d97f7450ac288f8168ef1edc6297f\"><\/script>\n<!-- admax -->`
     },
     methods: {
       updateCenter () {
