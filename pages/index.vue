@@ -151,7 +151,7 @@
         ],
         // 選択された表示間隔
         selectedInterval: 100,
-        admax: `<!-- admax -->\n<script src=\"//adm.shinobi.jp/s/271d97f7450ac288f8168ef1edc6297f\"><\/script><!-- admax -->`
+        admax: `<!-- admax -->\n<script src=\"\/\/adm.shinobi.jp\/s\/271d97f7450ac288f8168ef1edc6297f\"><\/script>\n<!-- admax -->`
       }
     },
     methods: {
