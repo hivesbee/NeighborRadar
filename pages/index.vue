@@ -55,7 +55,6 @@
               </gmap-map>
             </v-card>
           </v-flex>
-
           <v-flex xs7 text-xs-center>
             <v-card>
               <v-card-actions primary-title>
@@ -99,15 +98,13 @@
           <v-flex xs4 offset-xs1 text-xs-center>
             <v-card fluid>
               <v-container justify-center row wrap>
+                <ninja-admax />
                 <v-layout v-html="admax">
                 </v-layout>
               </v-container>
             </v-card>
           </v-flex>
         </v-layout>
-        <!-- admax -->
-        <script src="//adm.shinobi.jp/s/271d97f7450ac288f8168ef1edc6297f"></script>
-        <!-- admax -->
       </v-container>
     </v-content>
     <v-footer color="indigo" app>
@@ -117,8 +114,11 @@
 </template>
 
 <script>
+  import NinjaAdmax from '~/components/NinjaAdmax'
+
   export default {
     name: 'index',
+    components: { NinjaAdmax },
     props: {
       source: String
     },
