@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <div id="NeighborRadar_ad_side" style="position:absolute; top: 0; left: 0; width: 400px; height: 400px; background-color: #eeeeee; z-index:999999999999"></div>
   <v-app id="main">
     <v-navigation-drawer
       fixed
@@ -111,6 +113,7 @@
       <span class="white--text">&copy; 2017 nethive.info</span>
     </v-footer>
   </v-app>
+  </div>
 </template>
 
 <script>
@@ -118,6 +121,11 @@
 
   export default {
     name: 'index',
+    // head: {
+    //   script: [
+    //     { src: '~/modules/admax.js' }
+    //   ]
+    // },
     components: { NinjaAdmax },
     props: {
       source: String
