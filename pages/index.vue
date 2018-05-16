@@ -97,18 +97,7 @@
             </v-card>
           </v-flex>
           <v-flex xs4 offset-xs1 text-xs-center>
-            <v-card fluid>
-              <v-container justify-center row wrap>
-                <!--<ninja-admax />-->
-                <no-ssr>
-                  <v-layout>
-                    <div style="height:250px; width:300px;">
-                      <script src="//adm.shinobi.jp/s/271d97f7450ac288f8168ef1edc6297f"></script>
-                    </div>
-                  </v-layout>
-                </no-ssr>
-              </v-container>
-            </v-card>
+            <ninja-admax />
           </v-flex>
         </v-layout>
       </v-container>
