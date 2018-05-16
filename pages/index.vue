@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div id="NeighborRadar_ad_side" style="position:absolute; top: 0; left: 0; width: 400px; height: 400px; background-color: #eeeeee; z-index:999999999999"></div>
   <v-app id="main">
     <v-navigation-drawer
       fixed
@@ -100,9 +99,14 @@
           <v-flex xs4 offset-xs1 text-xs-center>
             <v-card fluid>
               <v-container justify-center row wrap>
-                <ninja-admax />
-                <v-layout v-html="admax">
-                </v-layout>
+                <!--<ninja-admax />-->
+                <no-ssr>
+                  <v-layout>
+                    <div style="height:250px; width:300px;">
+                      <script src="//adm.shinobi.jp/s/271d97f7450ac288f8168ef1edc6297f"></script>
+                    </div>
+                  </v-layout>
+                </no-ssr>
               </v-container>
             </v-card>
           </v-flex>
@@ -166,7 +170,7 @@
       }
     },
     mounted () {
-      // this.admax = `<!-- admax -->\n<script src=\"\/\/adm.shinobi.jp\/s\/271d97f7450ac288f8168ef1edc6297f\"><\/script>\n<!-- admax -->`
+      this.admax = `<!-- admax -->\n<script src=\"\/\/adm.shinobi.jp\/s\/271d97f7450ac288f8168ef1edc6297f\"><\/script>\n<!-- admax -->`
     },
     methods: {
       updateCenter () {
