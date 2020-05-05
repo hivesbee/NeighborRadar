@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-app id="main">
     <v-navigation-drawer
       fixed
@@ -55,8 +56,7 @@
               </gmap-map>
             </v-card>
           </v-flex>
-
-          <v-flex xs12 text-xs-center>
+          <v-flex xs7 text-xs-center>
             <v-card>
               <v-card-actions primary-title>
                 <v-container fluid>
@@ -96,6 +96,9 @@
               </v-card-actions>
             </v-card>
           </v-flex>
+          <v-flex xs4 offset-xs1 text-xs-center>
+            <ninja-admax />
+          </v-flex>
         </v-layout>
       </v-container>
     </v-content>
@@ -103,11 +106,20 @@
       <span class="white--text">&copy; 2017 nethive.info</span>
     </v-footer>
   </v-app>
+  </div>
 </template>
 
 <script>
+  import NinjaAdmax from '~/components/NinjaAdmax'
+
   export default {
     name: 'index',
+    // head: {
+    //   script: [
+    //     { src: '~/modules/admax.js' }
+    //   ]
+    // },
+    components: { NinjaAdmax },
     props: {
       source: String
     },
@@ -142,8 +154,12 @@
           100, 200, 300, 500, 1000
         ],
         // 選択された表示間隔
-        selectedInterval: 100
+        selectedInterval: 100,
+        admax: ''
       }
+    },
+    mounted () {
+      this.admax = `<!-- admax -->\n<script src=\"\/\/adm.shinobi.jp\/s\/271d97f7450ac288f8168ef1edc6297f\"><\/script>\n<!-- admax -->`
     },
     methods: {
       updateCenter () {
